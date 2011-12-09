@@ -1,0 +1,22 @@
+Index: administrator/components/com_flexicontact/models/config.php
+===================================================================
+--- administrator/components/com_flexicontact/models/config.php	(revision 1162)
++++ administrator/components/com_flexicontact/models/config.php	(working copy)
+@@ -84,7 +84,6 @@
+ 		$this->translate($this->data->default_subject);
+ 		$this->translate($this->data->area_prompt);
+ 		$this->translate($this->data->list_prompt);
+-		$this->translate($this->data->list_list);
+ 		for ($i = 1; $i <= 5; $i++)
+ 			{
+ 			$promptname = 'field_prompt'.$i;
+@@ -103,6 +102,9 @@
+ 		$list_list = str_replace("\n","",$list_list);			// remove any LF's
+ 		$this->data->list_array = explode(",",$list_list);
+ 		$this->data->list_count = count($this->data->list_array);
++		
++		foreach ($this->data->list_array as &$list_item)
++			$this->translate($list_item);
+ 		}
+ 		
+ 	return $this->data;
