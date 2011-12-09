@@ -1,0 +1,5 @@
+These 2 patches fix the following:
+
+- a translation issue in list items
+- a validation issue of the list items
+- add a 'use subject as list' feature
